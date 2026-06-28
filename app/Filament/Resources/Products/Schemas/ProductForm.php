@@ -17,7 +17,7 @@ class ProductForm
         return $schema
             ->components([
                 Select::make('category')
-                    
+
                     ->label('Categoria')
                     ->options(Category::all()->pluck('name', 'id'))
                     ->placeholder('Selecione uma categoria')
@@ -27,27 +27,32 @@ class ProductForm
                 TextInput::make('brand_id')
                     ->numeric(),
                 TextInput::make('sku')
-                    ->label('SKU')
+                    ->label('Código do Produto')
                     ->required(),
-                TextInput::make('name')
+                TextInput::make('name')->label('Nome')
                     ->required(),
-                TextInput::make('slug')
+                TextInput::make('slug')->label('Título')
                     ->required(),
                 Textarea::make('description')
+                    ->label('Descrição')
                     ->columnSpanFull(),
                 TextInput::make('cost_price')
                     ->required()
+                    ->label('Preço do Produto')
                     ->numeric()
                     ->prefix('$'),
                 TextInput::make('sale_price')
                     ->required()
+                    ->label('Preço em Promoção')
                     ->numeric()
                     ->prefix('$'),
                 TextInput::make('stock')
                     ->required()
+                    ->label('Estoque')
                     ->numeric()
                     ->default(0),
                 Toggle::make('active')
+                    ->label('ativo')
                     ->required(),
             ]);
     }
