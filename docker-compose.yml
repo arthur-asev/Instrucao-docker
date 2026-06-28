@@ -2,6 +2,9 @@ services:
   app:
     build:
       context: .docker
+      args:
+        UID: ${UID}
+        GID: ${GID}
       dockerfile: Dockerfile
     container_name: laravel_app
     working_dir: /var/www
